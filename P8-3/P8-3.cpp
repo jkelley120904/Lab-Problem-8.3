@@ -3,15 +3,19 @@
 using namespace std; 
 
 int romanCharValue(char r);
+int convertRomanToInt(string s);
 
 int main(void)
 {
-	char input;
+	string input;
 
-	cout << "number ";
-	cin >> input;
-	cout << romanCharValue(input);
-
+	/*while (true)
+	{
+		cout << "Enter roman number or Q to quit: ";
+		getline(cin, input);
+		if (input == "q" || input == "Q") break;
+		cout << input << " = " << convertRomanToInt(input) << endl;
+	}*/
 }
 
 int romanCharValue(char r)
@@ -45,4 +49,26 @@ int romanCharValue(char r)
 	{
 		return 1000;
 	}
+}
+
+int convertRomanToInt(string s)
+{
+	int total = 0;
+	while (s.length() != 0)
+	{
+		char firstCharacter = s[0];
+		char scendond = s[1];
+		
+		if (romanCharValue(firstCharacter) >= romanCharValue(scendond) || s.length() == 1)
+		{
+			total += romanCharValue(firstCharacter);
+			s = s.substr(1);
+		}
+		else
+		{
+			total += romanCharValue(scendond) - romanCharValue(firstCharacter);
+			s = s.substr(2);
+		}
+	}
+	return total;
 }
