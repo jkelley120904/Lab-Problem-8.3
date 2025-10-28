@@ -9,13 +9,13 @@ int main(void)
 {
 	string input;
 
-	/*while (true)
+	while (true)
 	{
 		cout << "Enter roman number or Q to quit: ";
 		getline(cin, input);
 		if (input == "q" || input == "Q") break;
 		cout << input << " = " << convertRomanToInt(input) << endl;
-	}*/
+	}
 }
 
 int romanCharValue(char r)
